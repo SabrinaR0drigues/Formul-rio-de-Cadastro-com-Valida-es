@@ -1,0 +1,36 @@
+document.getElementById("buscarCep").addEventListener("click", function() {
+    let cep = document.getElementById("cep").value.trim();
+
+    if (!validarCEP(cep)) {
+        alert("CEP inválido! Use o formato 00000-000.");
+        return;
+    }
+
+    buscarEndereco(cep);
+});
+
+// Função para validar o formato do CEP
+function validarCEP(cep) {
+    let regex = /^[0-9]{5}-?[0-9]{3}$/;
+    return regex.test(cep);
+}
+
+// Função para buscar o endereço pelo CEP usando a API ViaCEP
+function buscarEndereco(cep) {
+    cep = cep.replace("-", ""); // Remove o traço para a busca
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.erro) {
+                alert("CEP não encontrado!");
+            } else {
+                document.getElementById("endereco").value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
+            }
+        })
+        .catch(error => {
+            alert("Erro ao buscar o CEP. Tente novamente!");
+            console.error(error);
+        });
+}
+

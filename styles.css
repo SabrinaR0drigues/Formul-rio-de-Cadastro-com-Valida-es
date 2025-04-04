@@ -1,0 +1,48 @@
+/* Cor da tela de fundo. */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: #887db6;
+}
+
+/* Cor da borda do formulário. */
+form {
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    background: #a99eb4; /* Cor do preenchimento do formulário. */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #1d021a;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #725a5a;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #265e33;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #30793f;
+}
